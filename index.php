@@ -135,7 +135,7 @@ $lipsArrData = mysqli_fetch_all($lipsRes);
         </div>
         <div class="line-decor"></div>
         <div id="content-wrapper" class="content-wrapper section">
-            <div class="section-img-wrapper"><img class="section-img" src="" alt=""> NEWEST BAGS </div>
+            <div class="section-img-wrapper"><img class="section-img" src="" alt=""> FAMILY HEALTH </div>
             <ol class="ol-content">
                 <?php foreach ($bagsArrData as $key => $value) {?>
                 <li class="li-content-details">
@@ -157,7 +157,7 @@ $lipsArrData = mysqli_fetch_all($lipsRes);
             </ol>
             <a href="./show-all.php?brand=familyHealth" class="show-all" >See More <i class="fas fa-caret-down"></i> </a>
         <div class="line-decor"></div>
-            <div class="section-img-wrapper"><img class="section-img" src="" alt=""> NEWEST LIPSTICKS </div>
+            <div class="section-img-wrapper"><img class="section-img" src="" alt=""> MEDICAL BED </div>
             <ol class="ol-content">
             <?php foreach ($lipsArrData as $key => $value) {?>
                 <li class="li-content-details">
