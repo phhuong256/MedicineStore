@@ -1,0 +1,53 @@
+body {
+    background-color: lightgrey;
+}
+.log-in-container {
+    width: 800px;
+    margin: auto;
+}
+.log-in-wrapper {
+    background-color: lightskyblue;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    margin-top: 200px;
+}
+.email {
+    display: block;
+    outline: none;
+    border: none;
+    margin: auto;
+    width: 300px;
+    height: 40px;
+    background-color: white;
+}
+.password {
+    display: block;
+    outline: none;
+    margin: auto;
+    border: none;
+    width: 300px;
+    height: 40px;
+    background-color: white;
+}
+.admin-log-in-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 200px;
+    height: 40px;
+    font-size: 25px;
+    text-decoration: none;
+    background-color: whitesmoke;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+}
+h2 {
+    text-align: center;
+    padding-top: 10px;
+}
+.admin-log-in-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}

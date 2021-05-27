@@ -1,0 +1,23 @@
+body {
+    background-color: white !important;
+}
+.show-all-products {
+    padding-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1300px;
+    margin: auto;
+}
+.show-all-products > * {
+    /* display: inline-block; */
+    /* border: 1px solid grey; */
+}
+.show-all-text-decor {
+    padding-top: 180px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 15%;
+    margin: auto;
+    text-align: center;
+    border-bottom: 8px solid #ffc83c;
+}

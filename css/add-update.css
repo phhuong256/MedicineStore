@@ -1,0 +1,30 @@
+.input {
+    font-size: 22px;
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin: 2px auto auto auto;
+}
+.add-update-wrapper {
+    width: 800px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+}
+.btn-wrapper {
+    width: 320px;
+    margin: 5px 180px 0px auto;
+}
+.button {
+    width: 150px;
+    height: 35px;
+    margin: 10px auto auto auto;
+}
+.button:hover {
+    cursor: pointer;
+}
+h3 {
+    text-align: center;
+    margin: 3px;
+}

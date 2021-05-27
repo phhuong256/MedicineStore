@@ -1,0 +1,563 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.line-decor {
+  border-bottom: 1px solid lightgray;
+  padding-top: 80px;
+  width: 80%;
+  margin: auto;
+}
+
+/* animation */
+.content-wrapper {
+  animation: transistionIn 2s;
+}
+.img-landing-page {
+  animation: transistionIn 2s;
+}
+.explore-now {
+  animation-delay: 0.5s;
+  animation: transistionIn 4s;
+}
+.nav-bar-wrapper {
+  animation: transistionDown 2s;
+}
+@keyframes transistionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+@keyframes transistionDown {
+  from {
+    opacity: 0;
+    transition: opacity 0.75s;
+    transform: translateY(-40px);
+    transition: transform 0.5s;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: white;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+.to-top {
+  color: white;
+  padding: 15px 18px;
+  margin: auto;
+}
+
+#mybutton {
+  background-color: #ffc83c;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border-radius: 10px;
+}
+#mybutton:hover {
+  cursor: pointer;
+}
+.fa-arrow-up {
+  font-size: 29px;
+  text-align: center;
+}
+/* slick jquery css */
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 29px;
+}
+.slick-next {
+  margin-right: 35px;
+}
+.slick-prev {
+  margin-left: 35px;
+}
+.slick-slide {
+  outline: none;
+}
+
+/* body */
+body {
+  background-color: #dce1e3;
+  font-family: "Vollkorn", serif;
+  margin: auto;
+  scroll-snap-type: y mandatory;
+}
+.body-wrapper {
+  /* width: 1200px; */
+  height: 100%;
+  margin: auto;
+  background-color: #ffffff;
+  /* scroll-snap-align: end; */
+  /* overflow: scroll; */
+}
+/* nav-bar */
+.logo-image {
+  float: left;
+  width: 120px;
+  height: 100px;
+  border-radius: 50%;
+  /* margin-left: 80px;  */
+  /* overflow: hidden; */
+  /* margin-top: -6px; */
+}
+.img-fluid {
+  width: 120px;
+  height: 100px;
+}
+.section-img-wrapper {
+  font-size: 29px;
+  /* width: 1500px; */
+  height: 55px;
+  margin: 40px 0px 40px auto;
+}
+.section-img {
+  width: 50px;
+  height: 50px;
+}
+ol {
+  list-style-type: none;
+  /* float: left; */
+  margin: 5px;
+  /* margin-top: 20px; */
+}
+li {
+  float: left;
+  margin: 20px;
+  font-size: 21px;
+}
+.show-all {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.show-all > i {
+  margin-left: 5px;
+  line-height: 1.4;
+}
+.show-all > * {
+  font-size: 20px;
+}
+.show-all:hover {
+  cursor: pointer;
+  color: #ffc83c;
+}
+.navbar-brand {
+  width: 120px;
+  height: 100px;
+}
+.nav-bar-wrapper {
+  width: 100%;
+  background-color: #f1f1f1;
+  position: fixed;
+  z-index: 1000;
+}
+.nav-bar-container {
+  width: 1300px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+}
+.nav-bar-container > ol > li > a:hover {
+  color: #796a6a;
+  cursor: pointer;
+}
+
+.nav-button-container {
+  float: right;
+}
+
+.ol-li-container {
+  width: 610px;
+  /* display: flex; */
+  margin: auto;
+  height: 100%;
+}
+.ol-li-container > ol {
+  /* padding: 0px !important; */
+  /* width: 1000px; */
+  /* justify-content: center;
+    align-self: center; */
+  /* margin-bottom: 0px !important; */
+  /* line-height: 1.2; */
+}
+.li-content-container > li {
+  /* padding-top: 20px; */
+}
+
+/* landingpage */
+.landing-page-wrapper {
+  height: 90%;
+  padding-top: 100px;
+  background-color: white;
+  position: relative;
+}
+.landing-page-wrapper > img {
+  width: 100%;
+  height: 90%;
+}
+
+.explore-now {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  /* color: white; */
+  /* background-color: black; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3em;
+}
+.explore-now-text {
+  color: white !important;
+  background-color: #d7d7d7;
+  box-shadow: 3px 5px 5px #888888;
+  border-radius: 2px;
+  transition: all 1s ease; /* make button bigger animation*/
+  transform: scale(1);
+}
+
+.explore-now-text:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.explore-now-text:hover {
+  background-color: #000;
+  /*  Making button bigger on hover  */
+  transform: scale(1.2) perspective(1px);
+  cursor: pointer;
+}
+.explore-now > * {
+  /* width: 420px;
+    height: 80px;
+    color: white;
+    background: #ffc83c;
+    border-radius: 24px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px; */
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  background: #ffc83c;
+  width: 400px;
+  height: 80px;
+  font-size: 40px;
+  line-height: 75px;
+  letter-spacing: 2px;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+}
+/* nav-content */
+.logo-image {
+  float: left;
+  width: 120px;
+  height: 100px;
+  border-radius: 50%;
+  /* margin-left: 80px; */
+  /* overflow: hidden; */
+  /* margin-top: -6px; */
+}
+.img-fluid {
+  width: 120px;
+  height: 100px;
+}
+ol {
+  list-style-type: none;
+  /* float: left; */
+  margin: 5px;
+  margin-top: 20px;
+}
+li {
+  float: left;
+  margin: 20px;
+  font-size: 21px;
+}
+/* .landing-page-wrapper {
+    width: 1;
+  } */
+.content-wrapper {
+  overflow: auto;
+  width: 1400px;
+
+  /* bottom: 200px; */
+  height: 100%;
+  /* width: 1400px; */
+  margin: auto;
+  /* background-color: grey; */
+  /* padding-left: 100px; */
+}
+
+.content-wrapper::-webkit-scrollbar {
+  display: none;
+}
+/* .content-container {
+    width: 1400px;
+    margin: auto;
+  } */
+.content-img {
+  width: 250px;
+  height: 250px;
+}
+.product-details {
+  outline: none;
+  display: block;
+  margin-top: 16px;
+  width: 250px;
+  height: 100px;
+}
+.product-details > * {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+.product-details > *:hover {
+  cursor: pointer;
+  color: #796a6a;
+}
+
+.product-bot-border {
+  width: 29px;
+  border-bottom: 1px solid black;
+  margin: auto;
+  margin-top: 5px;
+}
+.product-image {
+  position: relative;
+  overflow: hidden;
+  /* this will hide the overflow that will be happening in translate(100%,100%)*/
+}
+.add-to-cart {
+  /* display: none;
+    color: white;
+    margin-left: 26%; */
+  /* color: transparent; */
+  /* background-color: red;
+    cursor: pointer;
+    vertical-align: middle;
+    min-width: 110px;
+    border-radius: 5px;
+    padding: 5px;
+     */
+  /* border: 1px solid #ccc;
+    background-color: red;
+    text-align: center; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.75s;
+  transform: translateY(20px);
+  transition: transform 0.5s;
+  /* transition: all 1s ease-in-out;
+    transform: translate(100%, 100%);
+    background-color: red;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0;
+    font-size: 12px; */
+  /* this will put the element away from the cart */
+}
+.add-to-cart:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+.add-btn {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  background: #ffc83c;
+  width: 200px;
+  height: 35px;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: 2px;
+  border-radius: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+.add-btn:hover {
+  cursor: pointer;
+}
+
+/* .product-image:hover .add-to-cart { */
+/* transform: translate(0, 0); */
+/* display: block; */
+/* when hover, now the element is shown in their original position */
+/* } */
+.li-content-details {
+  margin: 20px 30px 60px 30px;
+}
+
+.content-details:hover {
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 2px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+/* footer */
+.footer-wrapper {
+  height: 200px;
+  background-color: black;
+}
+.footer-container {
+  padding-top: 35px;
+  width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  /* flex: auto; */
+}
+.footer-title {
+  font-weight: 900;
+  font-style: italic;
+}
+.contact-details {
+  padding-top: 20px;
+}
+.left-footer {
+  display: inline-block;
+}
+.center-footer {
+  display: inline-block;
+}
+.right-footer {
+  display: inline-block;
+}
+.shipping-store-payment {
+  font-family: "Raleway", sans-serif;
+
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.shipping-store-payment:hover {
+  color: #796a6a;
+  cursor: pointer;
+}
+.contact-number-info {
+  font-family: "Raleway", sans-serif;
+
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.contact-number-info:hover {
+  color: #796a6a;
+  cursor: pointer;
+}
+.fb-ig-pt {
+  font-family: "Raleway", sans-serif;
+
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.fb-ig-pt:hover {
+  color: #796a6a;
+  cursor: pointer;
+}
+.media-text {
+  font-family: "Raleway", sans-serif;
+  border-bottom: 1px solid white;
+  width: 200px;
+  color: white;
+  font-size: 22px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 29px;
+}
+.media-container {
+  padding-top: 29px;
+  height: 200px;
+  background-color: black;
+}
+.facebook {
+  /* background-color: #483e3b; */
+  margin: auto;
+  width: 200px;
+}
+.fb-ig {
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  padding: 20px;
+}
+.fa-facebook:hover {
+  color: #1385fe;
+  cursor: pointer;
+}
+.fa-instagram:hover {
+  color: #ff52da;
+  cursor: pointer;
+}
+/* signature bar */
+.signature-bar {
+  height: 40px;
+  background: gray;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+}

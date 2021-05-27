@@ -1,0 +1,350 @@
+body {
+    background: white;
+}
+
+/* animation */
+
+.nav-bar-wrapper {
+    animation: transistionDown 2s;
+}
+@keyframes transistionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+@keyframes transistionDown {
+    from {
+        opacity: 0;
+        transition: opacity 0.75s;
+        transform: translateY(-40px);
+        transition: transform 0.5s;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    background: white;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+}
+a:focus {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+.to-top {
+    color: white;
+    padding: 15px 18px;
+    margin: auto;
+}
+
+#mybutton {
+    background-color: #ffc83c;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border-radius: 10px;
+}
+#mybutton:hover {
+    cursor: pointer;
+}
+.fa-arrow-up {
+    font-size: 29px;
+    text-align: center;
+}
+/* slick jquery css */
+.slick-prev:before,
+.slick-next:before {
+    color: black !important;
+    font-size: 29px;
+}
+.slick-prev {
+    left: -35px;
+}
+.slick-slide {
+    outline: none;
+}
+.draggable {
+    padding: 0px !important;
+}
+
+/* body */
+body {
+    background-color: #dce1e3;
+    font-family: "Vollkorn", serif;
+    margin: auto;
+}
+.body-wrapper {
+    /* width: 1200px; */
+    height: 100%;
+    margin: auto;
+    background-color: #ffffff;
+    /* scroll-snap-align: end; */
+    /* overflow: scroll; */
+}
+/* nav-bar */
+.logo-image {
+    float: left;
+    width: 120px;
+    height: 100px;
+    border-radius: 50%;
+    /* margin-left: 80px;  */
+    /* overflow: hidden; */
+    /* margin-top: -6px; */
+}
+.img-fluid {
+    width: 120px;
+    height: 100px;
+}
+ol {
+    list-style-type: none;
+    /* float: left; */
+    margin: 5px;
+    /* margin-top: 20px; */
+}
+li {
+    float: left;
+    margin: 20px;
+    font-size: 21px;
+}
+.navbar-brand {
+    width: 120px;
+    height: 100px;
+}
+.nav-bar-wrapper {
+    width: 100%;
+    background-color: #f1f1f1;
+    position: fixed;
+    z-index: 1000;
+}
+.nav-bar-container {
+    width: 1300px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+}
+.nav-bar-container > ol > li > a:hover {
+    color: #796a6a;
+    cursor: pointer;
+}
+
+.nav-button-container {
+    float: right;
+}
+
+.ol-li-container {
+    width: 610px;
+    /* display: flex; */
+    margin: auto;
+    height: 100%;
+}
+.ol-li-container > ol {
+    /* padding: 0px !important; */
+    /* width: 1000px; */
+    /* justify-content: center;
+        align-self: center; */
+    /* margin-bottom: 0px !important; */
+    /* line-height: 1.2; */
+}
+.li-content-container > li {
+    padding-top: 15px;
+}
+/* body */
+.cart-decor {
+    padding-top: 180px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 15%;
+    margin: auto;
+    text-align: center;
+    border-bottom: 8px solid #ffc83c;
+}
+.line-decor {
+    border-bottom: 1px solid lightgray;
+    padding-top: 80px;
+    width: 50%;
+    margin: auto auto 40px auto;
+}
+.cart-items-wrapper {
+    float: none !important;
+    display: flex;
+    width: 1200px;
+    /* height: 100vh; */
+    margin: auto;
+    justify-content: space-between;
+    border-bottom: 2px solid #dddddd;
+    background-color: #fbfbfb;
+}
+.cart-items-left {
+    margin: 20px;
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+.cart-item-detail {
+    margin: auto;
+    text-align: center;
+    /* height: 250px; */
+}
+.cart-item-name {
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.cart-item-price {
+    font-size: 19px;
+    color: #afafaf;
+}
+.cart-img {
+    /* margin: 0px !important; */
+    /* padding: 20px; */
+    height: 200px;
+    width: 200px;
+}
+.cart-img-wrapper {
+    /* display: block; */
+    height: 200px;
+    width: 200px;
+}
+.cart-items-right {
+    font-size: 20px;
+    margin: auto 20px auto auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background: rgb(192, 192, 192);
+    color: white;
+    text-align: center;
+}
+.cart-items-right:hover {
+    cursor: pointer;
+    background-color: red;
+}
+.cart-item-delete {
+    display: block;
+    line-height: 2.2;
+}
+/* footer */
+.footer-wrapper {
+    margin-top: 100px;
+    height: 200px;
+    background-color: black;
+}
+.footer-container {
+    padding-top: 35px;
+    width: 900px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /* flex: auto; */
+}
+.footer-title {
+    font-weight: 900;
+    font-style: italic;
+}
+.contact-details {
+    padding-top: 20px;
+}
+.left-footer {
+    display: inline-block;
+}
+.center-footer {
+    display: inline-block;
+}
+.right-footer {
+    display: inline-block;
+}
+.shipping-store-payment {
+    font-family: "Raleway", sans-serif;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.shipping-store-payment:hover {
+    color: #796a6a;
+    cursor: pointer;
+}
+.contact-number-info {
+    font-family: "Raleway", sans-serif;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.contact-number-info:hover {
+    color: #796a6a;
+    cursor: pointer;
+}
+.fb-ig-pt {
+    font-family: "Raleway", sans-serif;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.fb-ig-pt:hover {
+    color: #796a6a;
+    cursor: pointer;
+}
+.media-text {
+    font-family: "Raleway", sans-serif;
+    border-bottom: 1px solid white;
+    width: 200px;
+    color: white;
+    font-size: 22px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 29px;
+}
+.media-container {
+    padding-top: 29px;
+    height: 200px;
+    background-color: black;
+}
+.facebook {
+    /* background-color: #483e3b; */
+    margin: auto;
+    width: 200px;
+}
+.fb-ig {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    padding: 20px;
+}
+.fa-facebook:hover {
+    color: #1385fe;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    color: #ff52da;
+    cursor: pointer;
+}
+/* signature bar */
+.signature-bar {
+    height: 40px;
+    background: gray;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
