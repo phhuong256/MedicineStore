@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 
 
@@ -19,13 +19,14 @@ if (mysqli_connect_errno()) {
 
 if(isset($_POST['search'])) {
     $searchKey = $_POST['search'];
+    //$query = "select * from products WHERE name LIKE '%$searchKey%' limit 5";
 
     $query = "SELECT * FROM products";
 		if($_POST['search'] != ''){
-		  $query .= ' WHERE name LIKE "%'.str_replace(' ', '%', $_POST['search']).'%" OR description LIKE "%'.str_replace(' ', '%', $_POST['search']).'%"';
+		  $query .= ' WHERE name LIKE "%'.str_replace(' ', '%', $_POST['search']).'%" ';
 		}
         $search = mysqli_query($con, $query);
-        $searchData = mysqli_fetch_all($search);
+$searchData = mysqli_fetch_all($search);
 }
 $query = "select * from products where brand = 'familyHealth' order by id desc  limit 5 ";
 $bagsRes = mysqli_query($con, $query);
@@ -52,7 +53,7 @@ $lipsArrData = mysqli_fetch_all($lipsRes);
     <link rel="stylesheet" href="./css/for-update.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+    <-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="./js/slickUse.js"></script>
     <!-- <script src="./js/user.js"></script> -->
@@ -112,7 +113,7 @@ $lipsArrData = mysqli_fetch_all($lipsRes);
                     <div class="card-header">Search Result</div>
                     <div class="card-body" id="searchSection">
                         <div class="form-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Type your search keyword here"/>
+                            <input type="text" name="search" id="search" value="<?php echo $searchKey; ?>" class="form-control" placeholder="Type your search keyword here"/>
                         </div>
                         <div class="table-responsive" id="searchResult"></div>
                         <button class="btn">Search</button>
@@ -254,4 +255,4 @@ $lipsArrData = mysqli_fetch_all($lipsRes);
         modalBody.innerHTML=`<a class="btn-sign-out" href="./sign-out.php">Sign Out</a>`
     }
 </script>
-</html>
+</html> -->
