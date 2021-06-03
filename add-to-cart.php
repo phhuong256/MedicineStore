@@ -8,7 +8,7 @@
     // echo $imgProduct;
     // die();
     if (isset($_SESSION["email"])) {
-        $idUser = $_SESSION["email"];
+        $idUser = $_SESSION["id"];
         // echo $id;
         $serverName = "localhost";
         $userName = "root";

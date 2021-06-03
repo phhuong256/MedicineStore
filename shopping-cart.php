@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $total=0;
     $serverName = "localhost";
     $userName = "root";
     $password = "";
@@ -11,8 +12,8 @@
         echo "failed to connect";
     }
     if (isset($_SESSION["email"])) {
-        // echo "ok";
-        $userId = $_SESSION["email"];
+        $userId = $_SESSION["id"];
+        // echo $userId;
         $sql = "select * from `carts` where `id_user` = '$userId'";
         $res = mysqli_query($con, $sql);
         $arrData = mysqli_fetch_all($res);
@@ -45,6 +46,7 @@
         <script src="./js/slickUse.js"></script>
         <script src="./js/modal.js"></script>
         <script src="./js/index.js"></script>
+        <script src="./js/billmodal.js"></script>
         <!-- <script src="./js/user.js"></script> -->
         <link rel="stylesheet" href="./css/for-update.css">
     </head>
@@ -125,7 +127,60 @@
                         <a href="./delete-cart.php?id=<?php echo $value[0] ?>" class="cart-item-delete">X</a>
                     </div>
             </div>
+           <?php $total= ($total +floatval($value[4]) *1000000 ); ?> 
+
         <?php }}?>
+        <div id="billModalToggle" style="display: block;
+    border-radius: 2px;
+    font-size: 24px;
+    width: 200px;
+    text-align: center;
+    margin: 29px auto;
+    height: 55px;
+    outline: none;
+    border: none;
+    line-height: 2.5;
+    background-color: #ffc83c !important;
+    color: white;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);"  href="">Thanh toán</div>
+    <div id="billModal" class="modal">
+    <!-- Modal content -->
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="billModalClose" style="    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;">&times;</span>
+            <h2 class="modal-title">Phiếu Mua Hàng</h2>
+        </div>
+        <div class="modal-body">
+            <form class="bill-wrapper" method="post" action="./bill-add.php?total=<?php$total?>&userId=">
+                    <input  class="billstyle" placeholder="Họ Và Tên" name="name"  type="text">
+                <br>
+                    <input  placeholder="Số Điện Thoại" class="billstyle" name="phone" type="number"  >
+                <br>
+                <input placeholder="Địa chỉ đặt hàng" class="billstyle" name="address" type="text" >
+    <br>
+                <input type="submit" name="checkout-submit" class="" value="Đặt Hàng" style="display: block;
+                    border-radius: 2px;
+                    font-size: 24px;
+                    width: 200px;
+                    text-align: center;
+                    margin: 29px auto;
+                    height: 55px;
+                    outline: none;
+                    border: none;
+                    line-height: 2.5;
+                    background-color: #ffc83c !important;
+                    color: white;
+                    box-shadow: 0 0 10px rgb(0 0 0 / 10%);">
+                
+                </input>
+            </form>
+        </div>
+    </div>
+</div>
         <div class="footer-wrapper" id="footer-wrapper">
             <div class="footer-container">
                 <!-- <div class="contact-details"> -->
@@ -154,7 +209,7 @@
                 <i class="fab fb-ig fa-instagram"></i>
             </div>
         </div>
-        <div class="signature-bar">© 2020 by An. Proudly created with html css and js
+        <div class="signature-bar">© created with html css and js
         </div>
     </div>
     </body>
