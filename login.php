@@ -1,4 +1,8 @@
+
+
 <?php
+
+
     session_start();
     $serverName = "localhost";
     $userName = "root";
@@ -15,9 +19,10 @@
         $userInfo = mysqli_fetch_all($result);
         $isUser = mysqli_num_rows($result);
         if ($isUser > 0) {
-            $_SESSION["email"] = $userInfo[0][0];
+            $_SESSION["email"] = $userInfo[0][1];
             echo $userInfo[0][1];
 
         }
     }
 ?>
+
