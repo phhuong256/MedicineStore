@@ -41,7 +41,7 @@ function hienthi()
   $kq = mysqli_query($con,$query); 
   while($row = mysqli_fetch_array($kq) )
   {
-      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td>' .$row[4]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
+      $output .= '<tr><td>' .$row[0]. '</td><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td>' .$row[4]. '</td><td><a href="./delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
   }
   mysqli_close($con);
   return $output;
@@ -80,7 +80,7 @@ function hienthi()
                         </h3>
                     </div>
                     <div class="panel-body">
-                    <form class="frm" id = "frm-newtk" method="POST">
+                    <form class="frm" id = "frm-newtk" method="POST" action="./user-add.php">
                         <div class="row">
                           <!-- <div class="col">
                             <div class="label">Họ</div>
@@ -92,11 +92,11 @@ function hienthi()
                           </div> -->
                           <div class="col">
                             <div class="label">Email</div>
-                            <div class="value"><input type="text" name="user" size="20"required></div>
+                            <div class="value"><input type="text" name="email" size="20"required></div>
                           </div>					
                           <div class="col">
                             <div class="label">Password</div>
-                            <div class="value"><input type="text" name="pass" size="20" required></div>
+                            <div class="value"><input type="text" name="password" size="20" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Quyền Truy cập</div>
@@ -112,26 +112,30 @@ function hienthi()
                         
                     </form>
                     <?php
-                    if(isset($_POST["submit"])) {
-                        $email = $_POST['email'];
-$password = $_POST['password'];
-$level = $_POST['level'];
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbname = "medicinedb";
-$con = mysqli_connect($serverName, $userName, $password, $dbname);
-mysqli_set_charset($con, 'utf8');
-$query = "INSERT INTO `users`(`email`, `password`, `isAdmin`, `level`)  VALUES ('$user', '$pass', 0 ,'$level')";
-header("location: ./user.php");
-                    }
+                    // if(isset($_POST["submit"])) {
+                    //     $email = $_POST['email'];
+                    //     $password = $_POST['password'];
+                    //     $level = $_POST['level'];
+
+
+                    //     $serverName = "localhost";
+                    //     $userName = "root";
+                    //     $password = "";
+                    //     $dbname = "medicinedb";
+                    //     $con = mysqli_connect($serverName, $userName, $password, $dbname);
+                    //     mysqli_set_charset($con, 'utf8');
+
+
+                    //     $query = "INSERT INTO `users`(`email`, `password`, `isAdmin`, `level`)  VALUES ('$user', '$pass', 0 ,'$level')";
+                    //     header("location: ./user.php");
+                    // }
                     ?>
                     </div>
                     <div class="thongbao"></div>
                     <div class="bangdulieu">
                     <table class="table-data" bgcolor="#FFFFFF">
                       <tr id ="tb-khoa" class="row-first">
-                      
+                            <td width="150">Id</td>
                           <td width="300">Email</td>
                           <td width="150">Password</td>
                           <td width="300">isAdmin</td>
