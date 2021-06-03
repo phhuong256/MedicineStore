@@ -31,9 +31,9 @@
 
     $excel = "select id, name, brand, price from products LIMIT 10";
     $result = mysqli_query($con, $excel);
-    $developer_records = array();
+    $users = array();
         while( $rows = mysqli_fetch_assoc($result) ) {
-	$developer_records[] = $rows;
+	$users[] = $rows;
 }
     $totalItem = mysqli_num_rows($res);
     $totalPage = ceil($totalItem / 5);
@@ -74,20 +74,16 @@
     <?php
 if(isset($_POST["export_data"])) {	
 	$filename = "products_data_export_".date('Ymd') . ".xls";			
-	header("Content-Type: application/vnd.ms-excel");
-	header("Content-Disposition: attachment; filename=\"$filename\"");	
-	$show_coloumn = false;
-	if(!empty($developer_records)) {
-	  foreach($developer_records as $record) {
-		if(!$show_coloumn) {
-		  // display field/column names in first row
-		  echo implode("\t", array_keys($record)) . "\n";
-		  $show_coloumn = true;
-		}
-		echo implode("\t", array_values($record)) . "\n";
-	  }
-	}
-	exit; 
+	header('Content-Type: text/csv; charset=utf-8');
+    header("Content-Disposition: attachment; filename=\"$filename\"");
+$output = fopen('php://output', 'w');
+fputcsv($output, array('id', 'name', 'brand', 'price'));
+
+if (count($users) > 0) {
+    foreach ($users as $row) {
+        fputcsv($output, $row);
+    }
+} 
 }
 ?>
                 </div>

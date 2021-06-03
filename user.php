@@ -1,19 +1,34 @@
 <?php
 session_start();
-require_once("php/ss-admin.php");
-include("./php/echoHTML.php");
+    if($_SESSION['level'] != "0") //phân quyền để chuyển trang
+    {
+    header('location:./admin.php');
+    }
+    $serverName = "localhost";
+    $userName = "root";
+    $password = "";
+    $dbname = "medicinedb";
+    // connect to db
+    $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
 function hienthi()
 {
-    include("./php/conn.php");
-  if(!$dbcon)
+    $serverName = "localhost";
+    $userName = "root";
+    $password = "";
+    $dbname = "medicinedb";
+    // connect to db
+    $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
+  if(!$con)
   {
       echo'
       <script>
           function abc(){
               if(confirm("Lỗi dữ liệu") == true){
-                  window.location="../login.php";
+                  window.location="./admin.php";
               }else{
-                  window.location="../login.php";
+                  window.location="./admin.php";
               }
           }
           abc();

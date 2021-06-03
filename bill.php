@@ -36,9 +36,9 @@
     $sqlRes = mysqli_query($con, $sql);
     $arrData = mysqli_fetch_all($sqlRes);
 
-    $developer_records = array();
+    $users = array();
         while( $rows = mysqli_fetch_assoc($sqlRes) ) {
-	$developer_records[] = $rows;
+	$users[] = $rows;
 }
     // die();
 ?>
@@ -62,28 +62,25 @@
             <div class="manage-change" style="margin:20px 0px 20px 0px !important;display:flex ; justify-content:center;  ">
                     <a class="like-btn-style" href="./admin.php">PRODUCTS</a>
                     <a class="like-btn-style" href="./bill.php" style="margin:0px 20px 0px 20px">BILL</a>
-                    <a class="like-btn-style">USER</a>
+                    <a class="like-btn-style" href="./user.php">USER</a>
                     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">					
 				            <button type="submit" id="export_data" name='export_data' value="Export to excel" class="btn btn-info">Export</button>
 			        </form>
                 </div>
 <?php
 if(isset($_POST["export_data"])) {	
-	$filename = "bill_data_export_".date('Ymd') . ".xls";			
-	header("Content-Type: application/vnd.ms-excel");
-	header("Content-Disposition: attachment; filename=\"$filename\"");	
-	$show_coloumn = false;
-	if(!empty($developer_records)) {
-	  foreach($developer_records as $record) {
-		if(!$show_coloumn) {
-		  // display field/column names in first row
-		  echo implode("\t", array_keys($record)) . "\n";
-		  $show_coloumn = true;
-		}
-		echo implode("\t", array_values($record)) . "\n";
-	  }
-	}
-	exit; 
+	$filename = "bills_data_export_".date('Ymd') . ".xls";			
+	header('Content-Type: text/csv; charset=utf-8');
+    header("Content-Disposition: attachment; filename=\"$filename\"");
+    $output = fopen('php://output', 'w');
+    fputcsv($output, array('id', 'name', 'brand', 'price'));
+
+    if (count($users) > 0) {
+    foreach ($users as $row) {
+        fputcsv($output, $row);
+        }
+    } 
+
 }
 ?>
                 <div class="row"  style="width:1400px; justify-content: center;">
