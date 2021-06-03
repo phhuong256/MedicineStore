@@ -5,7 +5,7 @@
     }
     $serverName = "localhost";
     $userName = "root";
-    $password = "";
+    $password = "thanhnguyen314159";
     $dbname = "medicinedb";
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
@@ -29,6 +29,14 @@
     $getComment = array();
     while($row = mysqli_fetch_assoc($comment)) {
         $getComment[] = $row;
+    }
+
+    // check isAdmin
+    $queryAdmin = "select * from users where id=".$_SESSION["email"]." limit 1";
+    $isAdmin = mysqli_query($con, $queryAdmin);
+    $getAdmin = array();
+    while($row = mysqli_fetch_assoc($isAdmin)) {
+        $getAdmin[] = $row;
     }
     // echo "<pre>";
     // var_dump($suggestData);
@@ -149,25 +157,42 @@
                         <form class="row g-3" action="" method="post" enctype="multipart/form-data">
                             <div class="col-auto">
                                 <label for="comment" class="visually-hidden">Comment</label>
-                                <input <?php if(!isset($_SESSION["email"])) { echo "disabled"; } ?> type="text" class="form-control-plaintext comment-field" id="comment" placeholder="Your's comment" required>
+                                <input <?php if(!isset($_SESSION["email"]) || ($getAdmin[0]["isAdmin"] == "1" && $getAdmin[0]["level"] == "0")) { echo "disabled"; } ?> type="text" class="form-control-plaintext comment-field" id="comment" placeholder="Your's comment" required>
                                 <input type="hidden" id="idProduct" name="idProduct" value="<?php echo $productId; ?>">
                             </div>
                             <div class="col-auto">
-                                <button <?php if(!isset($_SESSION["email"])) { echo "disabled"; } ?> name="comment" class="btn btn-primary mb-3" type="button" onclick="typeComment()">Comment</button>
+                                <button <?php if(!isset($_SESSION["email"]) || ($getAdmin[0]["isAdmin"] == "1" && $getAdmin[0]["level"] == "0")) { echo "disabled"; } ?> name="comment" class="btn btn-primary mb-3" type="button" onclick="typeComment()">Comment</button>
                             </div>
                         </form>
                     </div>
                     <div class="comment-area">
                         <ul class="list-group comment-area-product">
                             <?php
+                                $delete = "";
+                                if ($getAdmin[0]["isAdmin"] == "1" && $getAdmin[0]["level"] == "0") {
+                                    $delete = "delete";
+                                }
                                 if(count($getComment) > 0) {
                                     foreach($getComment as $c) {
-                                        echo '
+                                        if ($delete != "") {
+                                            echo '
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    '.$c["content"].'
+                                                    <span class="badge bg-primary rounded-pill">'.explode("@", $c["email"])[0].'</span>
+                                                    <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+                                                        <input type="hidden" id="idProduct" name="idProduct" value="'.$productId.'">
+                                                        <button type="button" value="'.$c["id"].'" onclick="deleteComment(this)" class="delete-comment btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
+                                                    </form>
+                                                </li>
+                                            ';
+                                        } else {
+                                            echo '
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 '.$c["content"].'
                                                 <span class="badge bg-primary rounded-pill">'.explode("@", $c["email"])[0].'</span>
                                             </li>
                                         ';
+                                        }
                                     }
                                 } else {
                                     echo 'No comment';
