@@ -1,9 +1,9 @@
 <?php
 session_start();
-    if($_SESSION['level'] != "0") //phân quyền để chuyển trang
-    {
-    header('location:./admin.php');
-    }
+    // if($_SESSION['level'] != "0") //phân quyền để chuyển trang
+    // {
+    // header('location:./admin.php');
+    // }
     $serverName = "localhost";
     $userName = "root";
     $password = "";
@@ -20,30 +20,30 @@ function hienthi()
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
     mysqli_set_charset($con, 'utf8');
-  if(!$con)
-  {
-      echo'
-      <script>
-          function abc(){
-              if(confirm("Lỗi dữ liệu") == true){
-                  window.location="./admin.php";
-              }else{
-                  window.location="./admin.php";
-              }
-          }
-          abc();
-      </script>
-      ';
+//   if(!$con)
+//   {
+//       echo'
+//       <script>
+//           function abc(){
+//               if(confirm("Lỗi dữ liệu") == true){
+//                   window.location="./admin.php";
+//               }else{
+//                   window.location="./admin.php";
+//               }
+//           }
+//           abc();
+//       </script>
+//       ';
     
-  }
+//   }
   $output ="";
-  $query = "SELECT `userid`, `First_name`, `Last_name`, `Password`, `Email`, `User_level` FROM `users` WHERE 1";
-  $kq = mysqli_query($dbcon,$query); 
+  $query = "SELECT `id`, `email`, `password`, `isAdmin`, `level` FROM `users` WHERE 1";
+  $kq = mysqli_query($con,$query); 
   while($row = mysqli_fetch_array($kq) )
   {
-      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[4]. '</td><td>' .$row[3]. '</td><td>' .$row[5]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
+      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td>' .$row[4]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
   }
-  mysqli_close($dbcon);
+  mysqli_close($con);
   return $output;
 }
 ?>
@@ -70,15 +70,6 @@ function hienthi()
 </head>
 
 <body>
-    <?php
-    addNav();
-    ?>
-    <?php
-    addSidebar("qltk");
-    ?>
-    <?php
-    addUser();
-    ?>
     <div class="main">
         <div class="main-content">
             <div class="container-fluid">
@@ -89,49 +80,61 @@ function hienthi()
                         </h3>
                     </div>
                     <div class="panel-body">
-                    <form class="frm" id = "frm-newtk">
+                    <form class="frm" id = "frm-newtk" method="POST">
                         <div class="row">
-                          <div class="col">
+                          <!-- <div class="col">
                             <div class="label">Họ</div>
                             <div class="value"><input type="text" name="ho"  size="15" maxlenght = "12" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Tên</div>
                             <div class="value"><input type="text" name="ten"  size="12" maxlenght = "12" required></div>
-                          </div>
+                          </div> -->
                           <div class="col">
-                            <div class="label">Email/Tên tài khoản</div>
+                            <div class="label">Email</div>
                             <div class="value"><input type="text" name="user" size="20"required></div>
-                          </div>					l
+                          </div>					
                           <div class="col">
-                            <div class="label">Mật Khẩu</div>
+                            <div class="label">Password</div>
                             <div class="value"><input type="text" name="pass" size="20" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Quyền Truy cập</div>
                             <div class="value">
                                 <select name="level" id="level">
-                                  <option value="Admin">Admin</option>
-                                  <option value="NhanVien">Nhân Viên</option>						
+                                  <option value="1">Nhân Viên</option>						
                                 </select>
                             </div>
                         </div>			
                         <div class="btn-n">
-                            <button id = "themtaokhoan" type="button" class="click">Thêm</button>
+                            <button name="submit" id = "themtaokhoan" type="submit" class="click">Thêm</button>
                         </div>
                         
                     </form>
-                    
+                    <?php
+                    if(isset($_POST["submit"])) {
+                        $email = $_POST['email'];
+$password = $_POST['password'];
+$level = $_POST['level'];
+$serverName = "localhost";
+$userName = "root";
+$password = "";
+$dbname = "medicinedb";
+$con = mysqli_connect($serverName, $userName, $password, $dbname);
+mysqli_set_charset($con, 'utf8');
+$query = "INSERT INTO `users`(`email`, `password`, `isAdmin`, `level`)  VALUES ('$user', '$pass', 0 ,'$level')";
+header("location: ./user.php");
+                    }
+                    ?>
                     </div>
                     <div class="thongbao"></div>
                     <div class="bangdulieu">
                     <table class="table-data" bgcolor="#FFFFFF">
                       <tr id ="tb-khoa" class="row-first">
                       
-                          <td width="300">Họ</td>
-                          <td width="150">Tên</td>
                           <td width="300">Email</td>
-                          <td width="300">Password</td>
+                          <td width="150">Password</td>
+                          <td width="300">isAdmin</td>
                           <td width="300">Level</td>
                           <td></td>
                       </tr>

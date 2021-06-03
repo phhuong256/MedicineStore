@@ -1,6 +1,4 @@
 <?php
-$ho = $_POST['ho'];
-$ten = $_POST['ten'];
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 $level = $_POST['level'];
@@ -18,9 +16,9 @@ if(!$con)
     <script>
         function abc(){
             if(confirm("Lỗi dữ liệu") == true){
-                window.location="./login.php";
+                window.location="./admin.php";
             }else{
-                window.location="./login.php";
+                window.location="./admin.php";
             }
         }
         abc();
@@ -29,7 +27,7 @@ if(!$con)
 }
 else
 {
-    $query = "INSERT INTO `users`(`First_name`, `Last_name`, `Password`, `Email`, `User_level`)  VALUES (N'$ho',N'$ten','$pass','$user','$level')";
+    $query = "INSERT INTO `users`(`email`, `password`, `isAdmin`, `level`)  VALUES ('$user', '$pass', 0 ,'$level')";
     $kq = mysqli_query($con,$query);
     if($kq)
     {
@@ -40,5 +38,5 @@ else
     }
 }
 //dong kn
-mysqli_close($dbcon);
+mysqli_close($con);
 ?>
