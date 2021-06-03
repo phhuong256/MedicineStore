@@ -35,6 +35,11 @@
     $sql = "select * from bill limit $startFrom,$itemPerPage";
     $sqlRes = mysqli_query($con, $sql);
     $arrData = mysqli_fetch_all($sqlRes);
+
+    $developer_records = array();
+        while( $rows = mysqli_fetch_assoc($sqlRes) ) {
+	$developer_records[] = $rows;
+}
     // die();
 ?>
 
@@ -62,6 +67,25 @@
 				            <button type="submit" id="export_data" name='export_data' value="Export to excel" class="btn btn-info">Export</button>
 			        </form>
                 </div>
+<?php
+if(isset($_POST["export_data"])) {	
+	$filename = "bill_data_export_".date('Ymd') . ".xls";			
+	header("Content-Type: application/vnd.ms-excel");
+	header("Content-Disposition: attachment; filename=\"$filename\"");	
+	$show_coloumn = false;
+	if(!empty($developer_records)) {
+	  foreach($developer_records as $record) {
+		if(!$show_coloumn) {
+		  // display field/column names in first row
+		  echo implode("\t", array_keys($record)) . "\n";
+		  $show_coloumn = true;
+		}
+		echo implode("\t", array_values($record)) . "\n";
+	  }
+	}
+	exit; 
+}
+?>
                 <div class="row"  style="width:1400px; justify-content: center;">
                    
                     <div class="">

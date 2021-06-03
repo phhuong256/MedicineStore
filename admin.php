@@ -64,7 +64,7 @@
             <div class="manage-change" style="margin:20px 0px 20px 0px !important;display:flex ; justify-content:center;  ">
                     <a class="like-btn-style" href="./admin.php">PRODUCTS</a>
                     <a class="like-btn-style" href="./bill.php" style="margin:0px 20px 0px 20px">BILL</a>
-                    <a class="like-btn-style">USERS</a>
+                    <a class="like-btn-style" href="./user.php">USERS</a>
 			        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">					
 				            <button type="submit" id="export_data" name='export_data' value="Export to excel" class="btn btn-info">Export</button>
 			        </form>
@@ -73,7 +73,7 @@
 
     <?php
 if(isset($_POST["export_data"])) {	
-	$filename = "phpzag_data_export_".date('Ymd') . ".xls";			
+	$filename = "products_data_export_".date('Ymd') . ".xls";			
 	header("Content-Type: application/vnd.ms-excel");
 	header("Content-Disposition: attachment; filename=\"$filename\"");	
 	$show_coloumn = false;
