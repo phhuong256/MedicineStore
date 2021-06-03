@@ -10,6 +10,7 @@
     // die();
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
 
     if (mysqli_connect_errno()) {
         echo "failed to connect";

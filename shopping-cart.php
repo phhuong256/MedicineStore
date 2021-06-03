@@ -5,8 +5,10 @@
     $userName = "root";
     $password = "";
     $dbname = "medicinedb";
+    
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
 
     if (mysqli_connect_errno()) {
         echo "failed to connect";
@@ -51,6 +53,7 @@
         <link rel="stylesheet" href="./css/for-update.css">
     </head>
     <body>
+
         <div class="body-wrapper">
             <div id="myModal" class="modal">
                 <!-- Modal content -->
@@ -155,7 +158,7 @@
             <h2 class="modal-title">Phiếu Mua Hàng</h2>
         </div>
         <div class="modal-body">
-            <form class="bill-wrapper" method="post" action="./bill-add.php?total=<?php$total?>&userId=">
+            <form class="bill-wrapper" method="post" action="./bill-add.php?total=<?php echo $total ?>&userId= <?php echo  $userId ?> ">
                     <input  class="billstyle" placeholder="Họ Và Tên" name="name"  type="text">
                 <br>
                     <input  placeholder="Số Điện Thoại" class="billstyle" name="phone" type="number"  >
