@@ -5,6 +5,7 @@
     $dbname = "medicinedb";
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
     if (isset($_POST["email"]) && isset($_POST["password"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
