@@ -23,6 +23,13 @@
     $suggestRes = mysqli_query($con, $suggestQuery);
     $suggestData = mysqli_fetch_all($suggestRes);
 
+    // comment feature
+    $commentQuery = "select * from comment inner join users on comment.id_user=users.id where id_product='$productId'";
+    $comment = mysqli_query($con, $commentQuery);
+    $getComment = array();
+    while($row = mysqli_fetch_assoc($comment)) {
+        $getComment[] = $row;
+    }
     // echo "<pre>";
     // var_dump($suggestData);
 ?>
@@ -42,6 +49,8 @@
     <script src="https://kit.fontawesome.com/f38de2a0a5.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <link rel="stylesheet" href="./css/product-details.css">
@@ -134,7 +143,40 @@
                     </div>
                 </div>
             </div>
-            <div class="line-decor"></div>
+            <div class="line-decor">
+                <div class="comment">
+                    <div style="justify-content:center" class="input-group mb-3">
+                        <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+                            <div class="col-auto">
+                                <label for="comment" class="visually-hidden">Comment</label>
+                                <input <?php if(!isset($_SESSION["email"])) { echo "disabled"; } ?> type="text" class="form-control-plaintext comment-field" id="comment" placeholder="Your's comment" required>
+                                <input type="hidden" id="idProduct" name="idProduct" value="<?php echo $productId; ?>">
+                            </div>
+                            <div class="col-auto">
+                                <button <?php if(!isset($_SESSION["email"])) { echo "disabled"; } ?> name="comment" class="btn btn-primary mb-3" type="button" onclick="typeComment()">Comment</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="comment-area">
+                        <ul class="list-group comment-area-product">
+                            <?php
+                                if(count($getComment) > 0) {
+                                    foreach($getComment as $c) {
+                                        echo '
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                '.$c["content"].'
+                                                <span class="badge bg-primary rounded-pill">'.explode("@", $c["email"])[0].'</span>
+                                            </li>
+                                        ';
+                                    }
+                                } else {
+                                    echo 'No comment';
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="suggestion-wrapper">
                 <div class="suggestion-text">
                     YOU MAY ALSO LIKE
@@ -195,6 +237,7 @@
         </div>
     </div>
 </body>
+    <script src="./js/comment.js"></script>
 <script>
     <?php if ($_SESSION == null) {?>
         let email="";
