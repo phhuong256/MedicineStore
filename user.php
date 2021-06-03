@@ -1,16 +1,20 @@
 <?php
 session_start();
-    // if($_SESSION['level'] != "0") //phân quyền để chuyển trang
-    // {
-    // header('location:./admin.php');
-    // }
+    
     $serverName = "localhost";
     $userName = "root";
     $password = "";
     $dbname = "medicinedb";
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
-    mysqli_set_charset($con, 'utf8');
+    // $email = $_SESSION["email"];
+    // mysqli_set_charset($con, 'utf8');
+
+    // $query1 = "SELECT `isAdmin` FROM `users` WHERE email = $email";
+    // if($query1 == '1') //phân quyền để chuyển trang
+    // {
+    // header('location:./admin.php');
+    }
 function hienthi()
 {
     $serverName = "localhost";
