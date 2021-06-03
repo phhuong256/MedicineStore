@@ -1,210 +1,232 @@
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 #myBtn {
-    width: 40px;
-    height: 32px;
-    margin: auto 0px auto;
+  width: 40px;
+  height: 32px;
+  margin: auto 0px auto;
 }
 #myBtn > i {
-    font-size: 37px;
+  font-size: 37px;
 }
 #myBtn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .myCart {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background: url(../images/icon-cart-round.png);
-    margin: auto 10px auto 10px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(../images/icon-cart-round.png);
+  margin: auto 10px auto 10px;
 }
 .myCart:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .modal {
-    padding-top: 10%;
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 10%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 /* Modal Header */
 .modal-header {
-    padding: 2px 16px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    line-height: 2;
+  padding: 2px 16px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  line-height: 2;
 }
 
 /* Modal Body */
 .modal-body {
-    padding: 2px 16px;
-    height: 500px;
+  padding: 2px 16px;
+  height: 500px;
 }
 
 /* Modal Footer */
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
 }
 
 /* Modal Content */
 .modal-content {
-    position: relative; /* relative to orverride all other tag */
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 30%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    animation-name: animatetop;
-    animation-duration: 1s;
+  position: relative; /* relative to orverride all other tag */
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 1s;
 }
 
 /* Add Animation */
 @keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 .log-in-wrapper {
-    width: 300px;
-    margin: 50px auto auto auto;
+  width: 300px;
+  margin: 50px auto auto auto;
 }
 .log-in-input {
-    height: 50px;
-    width: 300px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 2px;
-    background-color: rgb(248, 248, 248);
-    outline: none;
-    font-size: 17px;
+  height: 50px;
+  width: 300px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(248, 248, 248);
+  outline: none;
+  font-size: 17px;
 }
 .submit-btn {
-    border-radius: 2px;
-    font-size: 18px;
-    margin-top: 30px;
-    width: 300px;
-    height: 40px;
-    outline: none;
-    border: none;
-    background-color: #ffc83d;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition-duration: 0.4s;
-    -webkit-transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform;
+  border-radius: 2px;
+  font-size: 18px;
+  margin-top: 30px;
+  width: 300px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: #ffc83d;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.4s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
 }
 .submit-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    -webkit-transform: scale(1.01);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1.01);
 }
 .link-sign-up {
-    font-size: 17px;
-    margin-top: 25px;
-    text-align: center;
+  font-size: 17px;
+  margin-top: 25px;
+  text-align: center;
 }
 .link-sign-up:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 .sign-up-wrapper {
-    display: none;
-    width: 300px;
-    margin: 50px auto auto auto;
+  display: none;
+  width: 300px;
+  margin: 50px auto auto auto;
 }
 .sign-up-input {
-    height: 50px;
-    width: 300px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 2px;
-    background-color: rgb(248, 248, 248);
-    outline: none;
-    font-size: 17px;
+  height: 50px;
+  width: 300px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(248, 248, 248);
+  outline: none;
+  font-size: 17px;
 }
 .link-log-in {
-    font-size: 17px;
-    margin-top: 25px;
-    text-align: center;
+  font-size: 17px;
+  margin-top: 25px;
+  text-align: center;
 }
 .link-log-in:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .btn-sign-out {
-    display: block;
-    border-radius: 2px;
-    font-size: 18px;
-    margin-top: 30px;
-    width: 200px;
-    text-align: center;
-    margin: auto;
-    height: 40px;
-    outline: none;
-    border: none;
-    line-height: 2.5;
-    background-color: red !important;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition-duration: 0.4s;
-    -webkit-transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform;
+  display: block;
+  border-radius: 2px;
+  font-size: 18px;
+  margin-top: 30px;
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  height: 40px;
+  outline: none;
+  border: none;
+  line-height: 2.5;
+  background-color: red !important;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.4s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
 }
 .btn-sign-out:hover {
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    -webkit-transform: scale(1.01);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1.01);
 }
 .error {
-    display: none;
-    font-size: 17px;
-    margin-top: 25px;
-    font-weight: 600;
-    text-align: center;
-    color: red !important;
+  display: none;
+  font-size: 17px;
+  margin-top: 25px;
+  font-weight: 600;
+  text-align: center;
+  color: red !important;
 }
 .success {
-    display: none;
-    font-size: 17px;
-    margin-top: 25px;
-    font-weight: 600;
-    text-align: center;
-    color: lightgreen !important;
+  display: none;
+  font-size: 17px;
+  margin-top: 25px;
+  font-weight: 600;
+  text-align: center;
+  color: lightgreen !important;
+}
+#billModalToggle:hover {
+  cursor: pointer;
+}
+.billstyle {
+  height: 50px;
+  width: 300px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(248, 248, 248);
+  outline: none;
+  font-size: 17px;
+}
+.bill-wrapper {
+  width: 300px;
+  margin: 50px auto auto auto;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
