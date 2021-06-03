@@ -12,6 +12,7 @@
     // session_unset();
     // connect to db
     $con = mysqli_connect($serverName, $userName, $password, $dbname);
+    mysqli_set_charset($con, 'utf8');
 
     if (mysqli_connect_errno()) {
         echo "failed to connect";
@@ -27,6 +28,13 @@
     //this query is for couting all items and divine it by 5
     $query = "select * from products ";
     $res = mysqli_query($con, $query);
+
+    $excel = "select id, name, brand, price from products LIMIT 10";
+    $result = mysqli_query($con, $excel);
+    $developer_records = array();
+        while( $rows = mysqli_fetch_assoc($result) ) {
+	$developer_records[] = $rows;
+}
     $totalItem = mysqli_num_rows($res);
     $totalPage = ceil($totalItem / 5);
     // echo $totalPage;
@@ -54,9 +62,34 @@
         <section>
             <div class="row-container">
             <div class="manage-change" style="margin:20px 0px 20px 0px !important;display:flex ; justify-content:center;  ">
-                    <a class="like-btn-style" href="./admin.php">USER</a>
+                    <a class="like-btn-style" href="./admin.php">PRODUCTS</a>
                     <a class="like-btn-style" href="./bill.php" style="margin:0px 20px 0px 20px">BILL</a>
-                    <a class="like-btn-style">PRODUCTS</a>
+                    <a class="like-btn-style">USERS</a>
+			        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">					
+				            <button type="submit" id="export_data" name='export_data' value="Export to excel" class="btn btn-info">Export</button>
+			        </form>
+		    </div>
+	</div>	
+
+    <?php
+if(isset($_POST["export_data"])) {	
+	$filename = "phpzag_data_export_".date('Ymd') . ".xls";			
+	header("Content-Type: application/vnd.ms-excel");
+	header("Content-Disposition: attachment; filename=\"$filename\"");	
+	$show_coloumn = false;
+	if(!empty($developer_records)) {
+	  foreach($developer_records as $record) {
+		if(!$show_coloumn) {
+		  // display field/column names in first row
+		  echo implode("\t", array_keys($record)) . "\n";
+		  $show_coloumn = true;
+		}
+		echo implode("\t", array_values($record)) . "\n";
+	  }
+	}
+	exit; 
+}
+?>
                 </div>
                 <div class="row" >
              

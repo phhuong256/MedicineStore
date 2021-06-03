@@ -55,9 +55,12 @@
         <section>
             <div class="row-container">
             <div class="manage-change" style="margin:20px 0px 20px 0px !important;display:flex ; justify-content:center;  ">
-                    <a class="like-btn-style" href="./admin.php">USER</a>
+                    <a class="like-btn-style" href="./admin.php">PRODUCTS</a>
                     <a class="like-btn-style" href="./bill.php" style="margin:0px 20px 0px 20px">BILL</a>
-                    <a class="like-btn-style">PRODUCTS</a>
+                    <a class="like-btn-style">USER</a>
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">					
+				            <button type="submit" id="export_data" name='export_data' value="Export to excel" class="btn btn-info">Export</button>
+			        </form>
                 </div>
                 <div class="row"  style="width:1400px; justify-content: center;">
                    
