@@ -22,7 +22,7 @@
         $altImg3 = $_POST['alt-img3-input'];
         $sql = "insert into `products`(`name`, `brand`, `description`, `price`, `coverImg`, `altImg1`, `altImg2`, `altImg3`) values ('$name','$brand','$desc','$price','$coverImg','$altImg1','$altImg2','$altImg3')";
         if (mysqli_query($con, $sql) == true) {
-            header("location:http://localhost/admin.php");
+            header("location:http://localhost:81/MedicineStore/admin.php");
         } else {
             echo "<h2 style=color:red; >ERROR</h2>";
 
@@ -41,7 +41,7 @@
         $altImg3 = $_POST['alt-img3-input'];
         $query = "update `products` set `name`='$name',`brand`='$brand',`description`='$desc',`price`='$price',`coverImg`='$coverImg',`altImg1`='$altImg1',`altImg2`='$altImg2',`altImg3`='$altImg3' WHERE id=$id";
         if (mysqli_query($con, $query) == true) {
-            header("location:http://localhost/admin.php");
+            header("location:http://localhost:81/MedicineStore/admin.php");
         } else {
             echo "<h2 style=color:red; >ERROR</h2>";
         }

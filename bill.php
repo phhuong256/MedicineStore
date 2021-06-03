@@ -56,7 +56,7 @@
             <div class="manage-change" style="margin:20px 0px 20px 0px !important;display:flex ; justify-content:center;  ">
                     <a class="like-btn-style" href="./admin.php">USER</a>
                     <a class="like-btn-style" href="./bill.php" style="margin:0px 20px 0px 20px">BILL</a>
-                    <a class="like-btn-style">PRODUCTS</a>
+                    <a class="like-btn-style" href="./product.php">PRODUCTS</a>
                 </div>
                 <div class="row"  style="width:1400px; justify-content: center;">
                    

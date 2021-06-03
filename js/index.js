@@ -53,7 +53,7 @@ function logInHandler() {
 
     if (email.val().length > 0 && pass.val().length > 0) {
       $.ajax({
-        url: "http://localhost/login.php",
+        url: "http://localhost:81/MedicineStore/login.php",
         method: "POST",
         data: { email: email.val(), password: pass.val() },
         cache: true,
@@ -88,7 +88,7 @@ function signUpHandler() {
     // console.log(email.val(), pass.val());
     if (email.val().length > 0 && pass.val().length > 0) {
       $.ajax({
-        url: "http://localhost/signup.php",
+        url: "http://localhost:81/MedicineStore/signup.php",
         method: "POST",
         data: { email: email.val(), password: pass.val() },
         cache: false,

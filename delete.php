@@ -11,5 +11,5 @@
     $productId = $_GET['id'];
     $query = "delete from products where id = $productId";
     mysqli_query($con, $query);
-    header("location: http://localhost/admin.php");
+    header("location: http://localhost:81/MedicineStore/admin.php");
 ?>

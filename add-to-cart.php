@@ -23,12 +23,12 @@
         }
         $sql = "insert into `carts`( `id_product`, `id_user`, `Product_name`, `Product_img`, `Product_price`)  values ('$idProduct' , '$idUser','$nameProduct','$imgProduct','$priceProduct')";
         if (mysqli_query($con, $sql) == true) {
-            header("location: http://localhost/shopping-cart.php");
+            header("location: http://localhost:81/MedicineStore/shopping-cart.php");
         } else {
             // echo "No";
             // echo $sql;
         }
     } else {
-        header("location: http://localhost/index.php");
+        header("location: http://localhost:81/MedicineStore/index.php");
     }
 ?>
