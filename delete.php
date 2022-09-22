@@ -13,4 +13,7 @@
     $query = "delete from products where id = $productId";
     mysqli_query($con, $query);
     header("location: http://localhost/MedicineStore/admin.php");
+
+
+    ádad
 ?>
